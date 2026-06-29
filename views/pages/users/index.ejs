@@ -1,0 +1,32 @@
+<%- include('../../partials/header') %>
+<a href="/">กลับ</a>
+    <h1>รายชื่อ Users</h1>
+    <a href="/users/create">+ เพิ่ม User</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ชื่อ</th>
+                <th>Email</th>
+                <th>จัดการ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(u => { %>
+                <tr>
+                    <td><%= u.id %></td>
+                    <td><%= u.name %></td>
+                    <td><%= u.email %></td>
+                    <td>
+                        <a href="/users/edit/<%= u.id %>">แก้ไข</a>
+                        <form action="/users/delete/<%= u.id %>" method="POST" style="display:inline">
+                            <button type="submit" onclick="return confirm('ยืนยันการลบ?')">ลบ</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+<%- include('../../partials/footer') %>

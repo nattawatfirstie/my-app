@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-</head>
-<body>
+<%- include('../partials/header') %>
+
     <h1>สวัสดี <%= user %>!</h1>
 
     <button id="toggle-btn">ซ่อนรายการ</button>
+    <br / >
+    <button id="crud-btn">เพิ่ม / ลบ / แก้ไข</button>
 
     <ul id="item-list">
         <% items.forEach(item => { %>
@@ -16,6 +12,24 @@
         <% }) %>
     </ul>
 
-    <script src="/js/main.js"></script>
-</body>
-</html>
+    <h2>รายชื่อ Users</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ชื่อ</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(u => { %>
+                <tr>
+                    <td><%= u.id %></td>
+                    <td><%= u.name %></td>
+                    <td><%= u.email %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+<%- include('../partials/footer') %>
