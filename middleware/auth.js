@@ -1,10 +1,8 @@
 const auth = (req, res, next) => {
-    const isLoggedIn = false; // สมมติว่า login อยู่
-
-    if (isLoggedIn) {
-        next(); // ผ่านไปได้เลย
+    if (req.session && req.session.user) {
+        next();
     } else {
-        res.redirect('/login'); // ไม่ผ่าน → กลับไปหน้า login
+        res.redirect('/login');
     }
 };
 

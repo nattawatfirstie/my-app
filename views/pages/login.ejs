@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+    <h1>เข้าสู่ระบบ</h1>
+
+    <% if (error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <form action="/login" method="POST">
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="password" required>
+        </div>
+        <button type="submit">เข้าสู่ระบบ</button>
+    </form>
+
+<%- include('../partials/footer') %>

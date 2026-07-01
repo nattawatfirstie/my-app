@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
 require('dotenv').config();
 
 const logger = require('./middleware/logger');
@@ -30,7 +31,10 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/userRouter');
+const authRouter = require('./routes/authRouter');
+
 app.use('/', indexRouter);
+app.use('/', authRouter);
 app.use('/users', userRouter);
 
 // Start server
