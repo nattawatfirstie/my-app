@@ -20,4 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = '/users';
         });
     }
+
+    const pfBtn = document.getElementById('pf-btn');
+    if (pfBtn) {
+        pfBtn.addEventListener('click', () => {
+            window.location.href = '/profile';
+        });
+    }
 });

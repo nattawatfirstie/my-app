@@ -16,6 +16,12 @@ db.query('SELECT 1')
 
 // Middleware
 app.use(logger);
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 1000 * 60 * 60 }
+}));
 
 // Set EJS as template engine
 app.set('view engine', 'ejs');

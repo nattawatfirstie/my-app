@@ -8,7 +8,8 @@ const indexController = {
                 title: 'My App',
                 user: 'Nattawat',
                 items: ['Item A', 'Item B', 'Item C'],
-                users: users
+                users: users,
+                sessionUser: req.session.user || null
             };
             res.render('pages/index', data);
         } catch (err) {
